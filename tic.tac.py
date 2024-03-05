@@ -22,7 +22,7 @@ angle1 = rows_list[0][0], rows_list[1][2], rows_list[2][4]
 angle2 = rows_list[0][4], rows_list[1][2], rows_list[2][0]
 angles = angle1, angle2
 
-
+#Game Start
 Player1 = input("X or O? ").lower()
 while Player1 != 'x' and Player1 != 'o':
     Player1 = input("Wrong input! Choose X or O: ").lower()
@@ -32,11 +32,9 @@ if Player1 == 'x':
 elif Player1 == 'o':
     print('Player 1 is O \nPlayer 2 is X')
 
-print(PlayerX_Win)
-print(rows_list)
+#Check for Player win
 if PlayerX_Win[1] in columns or PlayerX_Win[1] in angles or PlayerX_Win[0] in rows_list:
     print('Player X won!')
 if PlayerO_Win[1] in columns or PlayerO_Win[1] in angles or PlayerO_Win[0] in rows_list:
     print('Player O won!')
 
-print(Board)
