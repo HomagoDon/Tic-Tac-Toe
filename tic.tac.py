@@ -1,30 +1,42 @@
+Player1 = 0
 
+# Win Conditions 
+PX_win = {1:'x|x|x', 2:('x', 'x', 'x')}
+PO_win = {1:'o|o|o', 2:('o', 'o', 'o')}
+PlayerX_Win = list(PX_win.values())
+PlayerO_Win = list(PO_win.values())
 
-p1_win = {1: 'x|x|x', 2: ('x', 'x', 'x')}
-p2_win = {1: 'o|o|o', 2: ('o', 'o', 'o')}
-
-Player = 0
-
-rows = {1: 'x|#|#', 2: 'x|x|#', 3: 'x|#|x'}
+# Game board
+rows = {1: 'x|#|x', 2: 'x|#|#', 3: 'x|#|#'}
 rows_list = list(rows.values())
-p1win_list = list(p1_win.values())
-p2win_list = list(p2_win.values())
+Board = rows_list[0] + '\n' + rows_list[1] + '\n' + rows_list[2]
 
-line1 = rows_list[0][0], rows_list[1][0], rows_list[2][0]
-line2 = rows_list[0][2], rows_list[1][2], rows_list[2][2]
-line3 = rows_list[0][4], rows_list[1][4], rows_list[2][4]
+# All the three columns
+column1 = rows_list[0][0], rows_list[1][0], rows_list[2][0]
+column2 = rows_list[0][2], rows_list[1][2], rows_list[2][2]
+column3 = rows_list[0][4], rows_list[1][4], rows_list[2][4]
+columns = column1, column2, column3
 
+#First and second board angles
 angle1 = rows_list[0][0], rows_list[1][2], rows_list[2][4]
 angle2 = rows_list[0][4], rows_list[1][2], rows_list[2][0]
-
-if angle1 in p1win_list or angle2 in p1win_list:
-    print('Player 1 win')
-if line1 in p1win_list or line2 in p1win_list or line3 in p1win_list:
-    print('Player 1 win')
+angles = angle1, angle2
 
 
+Player1 = input("X or O? ").lower()
+while Player1 != 'x' and Player1 != 'o':
+    Player1 = input("Wrong input! Choose X or O: ").lower()
 
+if Player1 == 'x':
+    print('Player 1 is X \nPlayer 2 is O')
+elif Player1 == 'o':
+    print('Player 1 is O \nPlayer 2 is X')
 
+print(PlayerX_Win)
+print(rows_list)
+if PlayerX_Win[1] in columns or PlayerX_Win[1] in angles or PlayerX_Win[0] in rows_list:
+    print('Player X won!')
+if PlayerO_Win[1] in columns or PlayerO_Win[1] in angles or PlayerO_Win[0] in rows_list:
+    print('Player O won!')
 
-print(f'{rows_list[0]}\n{rows_list[1]}\n{rows_list[2]} ')
-
+print(Board)
