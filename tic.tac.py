@@ -1,13 +1,11 @@
 Player1 = 0
 
 # Win Conditions 
-PX_win = {1:'x|x|x', 2:('x', 'x', 'x')}
-PO_win = {1:'o|o|o', 2:('o', 'o', 'o')}
-PlayerX_Win = list(PX_win.values())
-PlayerO_Win = list(PO_win.values())
+PlayerX_Win = ['x|x|x', ('x', 'x', 'x')]
+PlayerO_Win = ['o|o|o', ('o', 'o', 'o')]
 
 # Game board
-rows = {1: 'x|#|x', 2: 'x|#|#', 3: 'x|#|#'}
+rows = {1: '#|#|#', 2: '#|#|#', 3: '#|#|#'}
 rows_list = list(rows.values())
 Board = rows_list[0] + '\n' + rows_list[1] + '\n' + rows_list[2]
 
@@ -37,4 +35,3 @@ if PlayerX_Win[1] in columns or PlayerX_Win[1] in angles or PlayerX_Win[0] in ro
     print('Player X won!')
 if PlayerO_Win[1] in columns or PlayerO_Win[1] in angles or PlayerO_Win[0] in rows_list:
     print('Player O won!')
-
